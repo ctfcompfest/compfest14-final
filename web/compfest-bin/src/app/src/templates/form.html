@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+
+<div class="post-create">
+  <div class="post-form  js-post-form">
+      <form id="w0" class="js-create-form form-horizontal" action="{{ request.path }}" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      <div class="error-summary" style="display:none">
+          <p>Please fix the following errors:</p>
+          <ul></ul>
+      </div>
+      <div class="content__title -no-border">
+          {{ title }}
+      </div>
+      <div class="form-group field-postform-text required">
+          <textarea id="postform-text" class="textarea -form js-paste-code" name="content" autofocus="" aria-required="true" style="overflow: hidden; overflow-wrap: break-word; height: 300px;">{{ note_content }}</textarea>
+      </div>
+      <div class="post-form__bottom">
+          <div class="post-form__left">
+              <div class="form-group field-postform-name">
+                  <label class="control-label col-sm-3" for="postform-name">Note Name / Title:</label>
+                  <div class="col-sm-9 field-wrapper">
+                  <input type="text" id="postform-name" class="form-control" name="title" maxlength="100" value="{{ note_title }}">
+                  </div>
+              </div>
+              <div class="form-group form-btn-container">
+                  <button type="submit" class="btn -big">{{ title[:9] }}</button>
+              </div>
+          </div>
+      </div>
+      </form>
+  </div>
+</div>
+<div style="clear: both;"></div>
+
+{% endblock %}

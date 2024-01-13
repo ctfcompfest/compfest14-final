@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<div class="user-page">
+    <div class="content__title">My Profile</div>
+    <div class="form_frame_left">
+       <form id="w0" class="form-horizontal" action="{{ url_for('web.edit_profile') }}" method="POST">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>          
+          <div class="error-summary" style="display:none">
+             <p>Please fix the following errors:</p>
+             <ul></ul>
+          </div>
+          {% if get_flashed_messages() %}
+          <div id="w1-success-0" class="alert-success alert fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            {% for message in get_flashed_messages() %}
+              {{ message }}
+            {% endfor %}
+          </div>
+          {% endif %}
+          <div class="form_frame">
+             <div class="form_left">
+                Username:
+             </div>
+             <div class="form_right">
+                {{ user.username }}                            
+             </div>
+          </div>
+          <div class="form-group field-fullname">
+             <label class="control-label col-sm-3" for="fullname">Fullname</label>
+             <div class="col-sm-9 field-wrapper">
+                <input type="text" id="fullname" class="form-control" name="fullname" value="{{ user.fullname }}" placeholder="Your fullname">
+             </div>
+          </div>
+          <div class="form-group form-btn-container">
+             <button type="submit" class="btn -big">Update Profile</button>        
+          </div>
+       </form>
+    </div>
+
+{% endblock %}

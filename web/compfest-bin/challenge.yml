@@ -1,0 +1,79 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "COMPFEST-Bin"
+author: "Sui"
+
+# Select a category from:
+# - pwn
+# - web
+# - osint
+# - crypto
+# - forensics
+# - reverse
+# - misc
+category: web
+
+# This is the challenge description. Make sure you include the
+# necessary URLs / netcat strings here.
+# Constants:
+# {{ IP_SERVER }} to get service IP address
+# {{ PORT }} to get service port
+description: "Another faulty clone webservice. But, I guess there's something special beneath it"
+
+# Flags specify answers that your challenge use. You should generally provide
+# at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries
+flags:
+  - { type: "static", content: "COMPFEST14{bl3ssing_1n_disguise_s0m3times_f3lt_p4inful_than_1_thought_1111689eab}", data: "case_sensitive" }
+
+# Tags are used to classify your challenge with topics. You should provide at
+# least one.
+# Can be removed if unused
+# Accepts strings
+tags:
+  - web
+  - lfi
+  - sqli
+
+# Hints are used to give players a way to buy or have suggestions. They are not
+# required but can be nice.
+# Default value: cost = 0, state = "visible"
+# Can be removed if unused
+# Accepts dictionaries
+hints:
+
+# Link to problem attachment for participants
+# Can be removed if unused
+# Accepts strings
+
+##############
+#  BAGIAN TC #
+##############
+
+# This is the number of points awarded for the challenge.
+value: 500
+type: dynamic
+
+# Number of solves it takes to reach the minimum value.
+decay: 450
+
+# Minimum value.
+minimum: 100
+
+# Provide paths to files from the same directory that this file is in
+# Accepts strings
+files:
+  - dist/source.py
+
+# The state of the challenge.
+# May be "visible" or "hidden".
+# It is "visible" by default.
+state: hidden
+
+# The ports to expose. The target port will be used to access the deployed container.
+expose:
+  containerPort:
+  targetPort: 12021

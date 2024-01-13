@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>COMPFEST-bin</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://pastebin.com/assets/c80611c4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/ff2ff0b/css/select2.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/c19c6973/css/select2-addl.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/c19c6973/css/select2-default.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/fb16b45a/css/kv-widgets.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/a25015e7/dist/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="https://pastebin.com/themes/pastebin/css/vendors.bundle.css?f261e3494209c18f98a6" rel="stylesheet">
+    <link href="https://pastebin.com/themes/pastebin/css/app.bundle.css?f261e3494209c18f98a6" rel="stylesheet">
+</head>
+   <body class="night-auto " data-pr="x2xy94pJ" data-pa="" data-sar="1" data-abd="1">
+    <div class="wrap">
+      <div class="header">
+      <div class="container">
+          <div class="header__container">
+              <div class="header__left">
+                  <a class="header__logo" href="/">
+                  COMPFEST-bin                </a>
+                  <div class="header__links h_1024">
+                  </div>
+              </div>
+              <div class="header__right">
+                  <div class="header_sign">
+                  <a href="/signup" class="btn-sign sign-up">Sign up</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="container">
+      <div class="content">
+      <div class="page -top -right login-page">
+      <div class="content__title">Login Page</div>
+      <div class="content__text">
+        <div class="notice -no-margin">
+          {% if get_flashed_messages() %}
+            {% for message in get_flashed_messages() %}
+              {{ message }}
+            {% endfor %}
+          {% else %}
+            To login please enter your credentials 
+          {% endif %}
+       </div>
+      </div>
+      <form id="w0" class="form-horizontal" action="{{ url_for('web.login') }}" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      <div class="error-summary" style="display:none">
+         <p>Please fix the following errors:</p>
+         <ul></ul>
+      </div>
+      <div class="form_frame_left">
+         <div class="form-group field-loginform-username required">
+            <label class="control-label col-sm-3" for="loginform-username">Username: </label>
+            <div class="col-sm-9 field-wrapper">
+               <input type="text" id="loginform-username" class="form-control" name="username" placeholder="Your username" aria-required="true">
+            </div>
+         </div>
+         <div class="form-group field-loginform-password required">
+            <label class="control-label col-sm-3" for="loginform-password">Password: </label>
+            <div class="col-sm-9 field-wrapper">
+               <input type="password" id="loginform-password" class="form-control" name="password" placeholder="Your password" aria-required="true">
+            </div>
+         </div>
+         <div class="form-group form-btn-container">
+            <button type="submit" class="btn -big">Login</button>
+         </div>
+      </div>
+      <script src="https://pastebin.com/assets/9ce1885/jquery.min.js"></script>
+      <script src="https://pastebin.com/assets/a25015e7/dist/bootstrap-tagsinput.js"></script>
+      <script src="https://pastebin.com/themes/pastebin/js/vendors.bundle.js?3bd1f2bdbc3844dd5aad"></script>
+      <script src="https://pastebin.com/themes/pastebin/js/app.bundle.js?3bd1f2bdbc3844dd5aad"></script>
+   </body>
+</html>

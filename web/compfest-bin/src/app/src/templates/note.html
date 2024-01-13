@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div>
+  <link href="https://pastebin.com/themes/pastebin/css/geshi/light/text.css?694707f98000ed24d865" rel="stylesheet">
+  <div class="post-view js-post-view">
+  <div class="error-summary js-rating-error hide">
+     <ul>
+        <li></li>
+     </ul>
+  </div>
+  <div class="details">
+     <div class="info-bar">
+        <div class="info-top">
+           <h1>{{ note.title }}</h1>
+        </div>
+        <div class="info-bottom">
+           <div class="username">
+              <a href="{{ url_for('web.index', username=username) }}">{{ username }}</a>
+           </div>
+           <div class="date">
+              <span>{{ note.modified_at }}</span>
+           </div>
+        </div>
+     </div>
+  </div>
+  <div class="highlighted-code">
+     <div class="top-buttons">
+        <div class="left"></div>
+        <div class="right">
+           <a href="{{ url_for('web.view_raw_note', id=note.id) }}" class="btn -small">raw</a>
+           <a href="{{ url_for('web.print_note', id=note.id) }}" class="btn -small h_800">print</a>
+           <a href="{{ url_for('web.edit_note', id=note.id) }}" class="btn -small">edit</a>
+           <a href="{{ url_for('web.delete_note', id=note.id) }}" class="btn -small" data-method="post">delete</a>
+        </div>
+     </div>
+     <div class="source text">
+        <ol class="text">
+            {% for line in note.content.split('\n') %}
+              <li class="li1">
+                <div class="de1">{{ line }}</div>
+              </li>
+            {% endfor %}
+        </ol>
+     </div>
+  </div>
+  
+<div>
+{% endblock %}

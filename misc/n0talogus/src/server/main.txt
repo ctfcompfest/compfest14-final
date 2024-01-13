@@ -1,0 +1,26 @@
+whitelist=("'" "p" "0" "4" "y" "1" "t" "2" ":" "7" "h" "6" "r" "3" "s" ";" "5" "o" "-"  "8" "i" "9" "!" " ")
+
+function finish_program(){
+echo -e "\ninteraction finished"
+echo "exiting program..."
+}
+
+
+echo "Welcome! I can only grant you one wish. be careful of what you wish for."
+read -ep "What is your wish? : " input
+counter=0
+input=${input//$'\n'/}
+
+for (( i=0; i<${#input}; i++ )); do
+  if ! [[ "${whitelist[*]}" =~ ${input:$i:1} ]]
+  then
+    ((counter++))
+  fi
+done
+
+if [[ "$counter" -gt 0 ]]
+then
+ echo "What Are you Doing?!"
+else
+ eval "eval \$\($input\)" 2>/dev/null || eval $input 2>/dev/null || echo "failed"
+fi

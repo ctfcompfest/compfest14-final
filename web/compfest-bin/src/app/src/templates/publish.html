@@ -1,0 +1,15 @@
+<h1> {{ fullname | safe }}'s Note </h1>
+<div>
+  <h2>Title: {{ note.title }}</h2>
+  <code>
+    <ol class="text">
+      {% for line in note.content.split('\n') %}
+        <li class="li1">
+          <div class="de1">{{ line }}</div>
+        </li>
+      {% endfor %}
+    </ol>
+  </code>
+</div>
+
+<div>

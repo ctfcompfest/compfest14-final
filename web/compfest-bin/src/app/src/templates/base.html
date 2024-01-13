@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>COMPFEST-bin</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://pastebin.com/assets/c80611c4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/ff2ff0b/css/select2.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/c19c6973/css/select2-addl.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/c19c6973/css/select2-default.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/fb16b45a/css/kv-widgets.min.css" rel="stylesheet">
+    <link href="https://pastebin.com/assets/a25015e7/dist/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="https://pastebin.com/themes/pastebin/css/vendors.bundle.css?f261e3494209c18f98a6" rel="stylesheet">
+    <link href="https://pastebin.com/themes/pastebin/css/app.bundle.css?f261e3494209c18f98a6" rel="stylesheet">
+</head>
+<body class="night-auto">
+    <div class="wrap">
+        <div class="header">
+        <div class="container">
+            <div class="header__container">
+                <div class="header__left">
+                    <a class="header__logo" href="/">
+                    COMPFEST-bin                </a>
+                    <div class="header__links h_1024">
+                    </div>
+                    <a class="header__btn" href="/">
+                    new note                </a>
+                </div>
+                <div class="header__right">
+                    <div class="header_sign">
+                        <a href="{{ url_for('web.index', username=session.get('username')) }}" class="btn-sign sign-in">My Notes</a>
+                        <a href="/user/profile" class="btn-sign sign-in">Profile</a>
+                        <a href="/logout" class="btn-sign sign-up">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container">
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        </div>
+    </div>
+    <script src="https://pastebin.com/assets/9ce1885/jquery.min.js"></script>
+</body>   
+</html>

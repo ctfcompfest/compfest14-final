@@ -1,0 +1,7 @@
+flask
+flask_wtf
+flask_sqlalchemy
+flask_migrate
+weasyprint==51
+pycryptodome
+babel
